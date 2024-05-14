@@ -8,9 +8,6 @@ Bundler.require(*Rails.groups)
 
 module New
   class Application < Rails::Application
-    config.middleware.use Rack::Auth::Basic do |username, password|
-      username == ENV['ADMIN_USERNAME'] && password == ENV['ADMIN_PASSWORD']
-    end
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
