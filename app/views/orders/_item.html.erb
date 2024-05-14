@@ -1,0 +1,21 @@
+<tr>
+  <td>
+    <%= image_tag product.image.tiny.url %>
+  </td>
+  <td>
+    <h4><%= product.name %></h4>
+    <br>
+    <p><%= product.description %></p>
+  </td>
+  <td style="color: rgba(0, 130, 29, 0.7); font-weight: 700;">
+    <%= product.price %>
+  </td>
+  <td>
+    <div>
+    <%= quantity %>
+    </div>
+  </td>
+  <td style="color: rgba(0, 130, 29, 0.7); font-weight: 700;">
+    <%= product.price * quantity %>
+  </td>
+</tr>

@@ -55,5 +55,16 @@ class OrdersController < ApplicationController
     order.save!
     order
   end
+  
+  def get_order_details
+    line_items = LineItem.where(order_id: @order.id)
+    enhanced_items = line_items.map do |line_item|
+      {
+        product: line_item.product,               # The associated Product object
+        quantity: line_item.quantity              # The quantity from the line item
+      }
+    end
+  end
+  helper_method :get_order_details
 
 end
