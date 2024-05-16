@@ -6,6 +6,14 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
 
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create]
+  get '/login', to: 'sessions#new', as: 'login'
+  post '/login', to: 'sessions#create', as: 'login/create'
+  get '/register', to: 'users#new', as: 'register'
+  post '/login', to: 'users#create', as: 'register/create'
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
+
   resource :cart, only: [:show] do
     post   :add_item
     post   :remove_item
